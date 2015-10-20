@@ -1,0 +1,22 @@
+{
+  "name": "react-browserify",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "babelify": "^6.3.0",
+    "browser-sync": "^2.9.11",
+    "gulp": "^3.9.0",
+    "gulp-browserify": "^0.5.1",
+    "gulp-concat": "^2.6.0",
+    "reactify": "^1.1.1"
+  },
+  "dependencies": {
+    "react": "^0.13.0"
+  }
+}
