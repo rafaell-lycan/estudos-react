@@ -1,0 +1,60 @@
+
+body {
+  padding-top: 15px;
+  background-color: #fcfcfc;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.title{
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+/* Todo List */
+.task {
+  padding: 20px;
+  border-left: 3px solid #999999
+}
+
+.task-info {
+  background-color: #f2f9fc;
+  border-color: #5bc0de;
+  color: #444444;
+}
+
+.task-success {
+  background-color: #eef7ea;
+  border-color: #669900;
+  color: #444444;
+  text-decoration: line-through;
+}
+
+
+/* Icons */
+
+.close, .mark-done {
+  transition: opacity 0.3s linear,
+    color 0.3s linear;
+}
+
+.close:hover {
+  color: #DD0000;
+}
+
+.mark-done {
+  opacity: 0.2;
+  margin-right: 30px;
+  cursor: pointer;
+}
+
+.mark-done:hover {
+  opacity: 0.5;
+  color: #00DD00;
+}
+
+/* Form */
+
+.task-input {
+  padding-top: 15px;
+  padding-bottom: 30px;
+}

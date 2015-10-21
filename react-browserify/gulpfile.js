@@ -17,7 +17,8 @@ gulp.task('browserify', ['copy'], function(){
 });
 
 gulp.task('copy', function(){
-  gulp.src('src/index.html')
+  console.log("Copy files");
+  gulp.src('src/*.{html,css}')
   .pipe(gulp.dest('dist'))
   .pipe(browserSync.stream());
 });
@@ -30,7 +31,7 @@ gulp.task('browsersync', function(){
   });
 });
 
-gulp.task('watch', ['browsersync'], function(){
+gulp.task('watch', ['default', 'browsersync'], function(){
   gulp.watch('src/**/*.*', ['default']);
 });
 
