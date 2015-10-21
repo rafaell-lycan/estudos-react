@@ -1,17 +1,31 @@
 var React = require('react');
 var Task = require('./task');
 var TaskInput = require('./task-input');
+var LocalStorage = require('../localstorage-service');
 
 var TodoList = React.createClass({
   getInitialState: function () {
     return{
-      todos: [
+      todos: this.loadTasks(),
+      inputValue: ''
+    };
+  },
+
+  loadTasks : function () {
+
+    if(!LocalStorage.get('todos')) {
+      return [
         {value : 'Learn JavaScript', done: false },
         {value : 'Buy Milk', done: true },
         {value : 'Learn React', done: false }
-      ],
-      inputValue: ''
-    };
+      ];
+    }
+
+    return LocalStorage.get('todos');
+  },
+
+  updateStorage: function (todos) {
+    LocalStorage.set('todos', todos);
   },
 
   addTask : function (e) {
@@ -25,6 +39,8 @@ var TodoList = React.createClass({
       value: this.state.inputValue,
       done: false
     });
+
+    this.updateStorage(todos);
 
     this.setState({
       todos: todos,
@@ -41,6 +57,8 @@ var TodoList = React.createClass({
 
     task.done ? todos.push(task) : todos.unshift(task);
 
+    this.updateStorage(todos);
+
     this.setState({
       todos: todos
     });
@@ -48,6 +66,8 @@ var TodoList = React.createClass({
 
   removeTask: function (index) {
     this.state.todos.splice(index, 1);
+
+    this.updateStorage(this.state.todos);
 
     this.setState({
       todos: this.state.todos
