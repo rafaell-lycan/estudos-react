@@ -1,12 +1,14 @@
 var gulp = require('gulp'),
     browserify = require('gulp-browserify'),
     concat = require('gulp-concat'),
+    plumber = require('gulp-plumber'),
     browserSync = require('browser-sync').create();
 
 gulp.task('browserify', ['copy'], function(){
-  gulp.src('src/main.jsx')
+  gulp.src('src/main.js')
+  .pipe(plumber())
   .pipe(browserify({
-    transform: 'reactify',
+    transform: ['reactify'],
     debug: true
   }))
   .pipe(concat('app.js'))
