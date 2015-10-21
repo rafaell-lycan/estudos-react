@@ -6,8 +6,6 @@ var APP = React.createClass({
   render: function() {
     return (
       <div className="container">
-        <h1>Hello World</h1>
-
         <TodoList />
       </div>
     );
