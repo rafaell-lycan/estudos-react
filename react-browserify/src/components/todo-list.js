@@ -9,12 +9,30 @@ var TodoList = React.createClass({
         {value : 'Learn JavaScript', done: false },
         {value : 'Buy Milk', done: true },
         {value : 'Learn React', done: false }
-      ]
+      ],
+      inputValue: ''
     };
   },
 
+  addTask : function (e) {
+    e.preventDefault();
+
+    if(!this.state.inputValue) return;
+
+    var todos = this.state.todos;
+
+    todos.push({
+      value: this.state.inputValue,
+      done: false
+    });
+
+    this.setState({
+      todos: todos,
+      inputValue: ''
+    })
+  },
+
   markTaskDone: function (index) {
-    console.log("->", index);
     var todos = this.state.todos;
     var task = todos[index];
 
@@ -36,6 +54,12 @@ var TodoList = React.createClass({
     });
   },
 
+  triggerChange: function (e) {
+    this.setState({
+      inputValue: e.target.value
+    });
+  },
+
   render: function() {
     var todos = this.state.todos.map(function (task, index) {
       return(
@@ -52,7 +76,11 @@ var TodoList = React.createClass({
       <div className="col-xs-6 col-xs-offset-3 todo-list">
         <h1 className="title">My Awesome TodoList</h1>
         {todos}
-        <TaskInput />
+        <TaskInput
+        inputValue={this.state.inputValue}
+        addTask={this.addTask}
+        triggerChange={this.triggerChange}
+        />
       </div>
     );
   }
