@@ -27,6 +27,10 @@ module.exports = {
       {
         test: /\.scss$/,
         loaders: ["style", "css", "sass"]
+      },
+      {
+        test: /\.woff$/,
+        loaders: ["file", "url-loader?limit=10000&mimetype=application/font-woff"]
       }
     ],
   },
