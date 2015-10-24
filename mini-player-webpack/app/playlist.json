@@ -1,0 +1,44 @@
+[
+    {
+        "title": "What You Wanted",
+        "artist": "OneRepublic",
+        "trackId": 79750410,
+        "duration": 241315,
+        "thumbnail": "https://i1.sndcdn.com/artworks-000040999477-zeej7u-t500x500.jpg"
+    },
+    {
+        "title": "Radioactive",
+        "artist": "Imagine Dragons",
+        "trackId": 72713290,
+        "duration": 188202,
+        "thumbnail": "https://i1.sndcdn.com/artworks-000040999477-zeej7u-t500x500.jpg"
+    },
+    {
+        "title": "Let's Go",
+        "artist": "Step Up Revolution",
+        "trackId": 198772955,
+        "duration": 192775,
+        "thumbnail": "https://i1.sndcdn.com/artworks-000026808160-4vx6ds-t500x500.jpg"
+    },
+    {
+        "title": "Too Close",
+        "artist": "Alex Clare",
+        "trackId": 45955219,
+        "duration": 256829,
+        "thumbnail": "https://i1.sndcdn.com/artworks-000023477970-w6o5hx-t500x500.jpg"
+    },
+    {
+        "title": "Opening Theme - Game of Thrones",
+        "artist": "Music From The HBO Series",
+        "trackId": 144848972,
+        "duration": 101781,
+        "thumbnail": "https://i1.sndcdn.com/artworks-000021188473-ib1zaj-t500x500.jpg"
+    },
+    {
+        "title": "He's a Pirate",
+        "artist": "Pirates Of The Caribbean",
+        "trackId": 66301726,
+        "duration": 92090,
+        "thumbnail": "https://i1.sndcdn.com/artworks-000033146239-jtywsu-t500x500.jpg"
+    }
+]
