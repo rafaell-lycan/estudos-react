@@ -3,7 +3,7 @@ module.exports = {
 
   entry: {
     javascript: "./app.js",
-    html: "./index.html",
+    html: "./index.html"
   },
 
   output: {
@@ -22,16 +22,16 @@ module.exports = {
       },
       {
         test: /\.html$/,
-        loader: "file?name=[name].[ext]",
+        loaders: ["file?name=[name].[ext]"],
       },
       {
         test: /\.scss$/,
         loaders: ["style", "css", "sass"]
       },
       {
-        test: /\.woff$/,
-        loaders: ["file", "url-loader?limit=10000&mimetype=application/font-woff"]
-      }
+        test: /\.json$/,
+        loaders: ["file?name=[name].[ext]", "json"]
+      },
     ],
   },
 }
