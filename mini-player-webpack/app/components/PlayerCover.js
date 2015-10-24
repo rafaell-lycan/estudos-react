@@ -1,6 +1,5 @@
 import React from "react";
 import Controls from "./PlayerControls";
-import PlayerService from "../services/player-service";
 
 export default React.createClass({
   getDefaultProps:function () {
@@ -15,7 +14,6 @@ export default React.createClass({
   getInitialState: function () {
     return {
       menu : "",
-      player: new PlayerService(),
       playerBtn: "fa-play"
     }
   },
@@ -27,13 +25,10 @@ export default React.createClass({
   },
 
   togglePlayButton: function () {
+    this.props.actions.play();
     this.setState({
       playerBtn: (this.state.playerBtn !== "fa-play") ? "fa-play" : "fa-pause"
     });
-  },
-
-  componentDidMount: function () {
-    this.state.player.setPlayList(require("!json!../playlist.json"));
   },
 
   render: function () {
@@ -43,7 +38,7 @@ export default React.createClass({
         <a href={this.props.stream.link} className="stream-brand" title={this.props.stream.title} target="_blank">
             <i className="fa fa-soundcloud"></i>
           </a>
-          <Controls onClickPlay={this.togglePlayButton} playerBtn={this.state.playerBtn} />
+          <Controls onClickPlay={this.togglePlayButton} trackInfo={this.props.trackInfo} playerBtn={this.state.playerBtn} />
       </div>
       )
   }

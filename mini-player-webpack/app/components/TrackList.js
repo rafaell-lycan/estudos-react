@@ -10,7 +10,7 @@ export default React.createClass({
   render: function () {
     let tracks = this.props.trackList.map( (info, index) => {
       info.duration = this.parseTrackDuration(info.duration);
-      return <Track key={index + 1} trackInfo={info} />
+      return <Track key={index} index={index + 1} trackInfo={info} play={this.props.play} />
     });
 
     return (

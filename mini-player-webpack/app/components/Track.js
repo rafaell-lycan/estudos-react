@@ -1,14 +1,10 @@
 import React from "react";
 
 export default React.createClass({
-  componentDidMount: function () {
-    console.log("->", this.props);
-  },
-
   render: function () {
     return(
-      <li className="song-item">
-        <span className="index">{this.props.key}</span>
+      <li className="song-item" onClick={this.props.play.bind(null, this.props)}>
+        <span className="index">{this.props.index}</span>
         <span className="title">{this.props.trackInfo.title}</span>
         <div className="span time">{this.props.trackInfo.duration}</div>
       </li>

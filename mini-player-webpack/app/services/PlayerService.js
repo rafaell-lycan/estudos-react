@@ -6,6 +6,7 @@ let _player = document.createElement('audio');
 export default class PlayerService{
   constructor()  {
     this.playlist = [];
+    this.trackId;
   }
 
   getPlayList() {
@@ -14,11 +15,19 @@ export default class PlayerService{
 
   setPlayList(playlist = []) {
     this.playlist = playlist;
+    this.loadTrack(playlist[0].trackId, 0);
   }
 
-  loadTrack(song) {
-    if(!song) return;
-    _player.src = API_URL + song + '/stream?client_id=' + TOKEN;
+  loadTrack(trackId) {
+    if(!trackId) return;
+
+    this.trackId = trackId;
+
+    _player.src = API_URL + trackId + '/stream?client_id=' + TOKEN;
+  }
+
+  hasTrack() {
+    return !!this.trackId;
   }
 
   play(){
