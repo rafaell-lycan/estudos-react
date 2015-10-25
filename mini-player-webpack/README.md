@@ -1,6 +1,8 @@
 # Mini Player using React + Flux.
 Just a simple player to explore Flux and React, using [SoundCloud API](https://developers.soundcloud.com/).
 
+[DEMO](http://player-rafaell18.rhcloud.com/)
+
  ![App screenshot](screen.png)
 
 I've follow this [exemple of template](https://www.behance.net/gallery/Rdio-Music-Player-Concept/8885567) to do this app. Thanks [David Stubbs](https://www.behance.net/davekilljoy).
