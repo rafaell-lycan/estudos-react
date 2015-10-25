@@ -2,6 +2,7 @@ import PlayerDispatcher from "../dispatcher/PlayerDispatcher";
 import PlayerConstants from "../constants/PlayerConstants";
 import { EventEmitter } from "events";
 import PlayerService from "../services/PlayerService";
+import KeyboardService from "../services/KeyboardService";
 import LocalStorageService from "../services/LocalStorageService";
 
 let _playlist = [], _currentTrack, _Player = new PlayerService(), _LocalStorage = new LocalStorageService();
@@ -59,10 +60,31 @@ class PlayerStoreFactory extends EventEmitter{
 
   init(){
     _loadTrak();
+    this._onComplete();
+    this._onKeyBoardEvents();
+  }
+
+  _onComplete() {
     _Player.onComplete( () => {
       _changeTrack('next');
       this.emitChange();
     });
+  }
+
+  _onKeyBoardEvents(){
+    let keyboardService = new KeyboardService();
+    keyboardService.addTrigger(32, () => {
+      _play();
+      this.emitChange();
+    });
+    keyboardService.addTrigger(39, () => {
+      _changeTrack('next');
+      this.emitChange()
+    }, true);
+    keyboardService.addTrigger(37, () => {
+      _changeTrack('prev');
+      this.emitChange()
+    }, true);
   }
 
   getPlayList () {
