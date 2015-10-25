@@ -1,106 +1,108 @@
-import PlayerDispatcher from "../dispatcher/PlayerDispatcher";
-import PlayerConstants from "../constants/PlayerConstants";
-import { EventEmitter } from "events";
-import PlayerService from "../services/PlayerService";
-import KeyboardService from "../services/KeyboardService";
-import LocalStorageService from "../services/LocalStorageService";
+import PlayerDispatcher from '../dispatcher/PlayerDispatcher'
+import PlayerConstants from '../constants/PlayerConstants'
+import { EventEmitter } from 'events'
+import PlayerService from '../services/PlayerService'
+import KeyboardService from '../services/KeyboardService'
+import LocalStorageService from '../services/LocalStorageService'
 
-let _playlist = [], _currentTrack, _Player = new PlayerService(), _LocalStorage = new LocalStorageService();
+let _playlist = []
+let _currentTrack
+let _Player = new PlayerService()
+let _LocalStorage = new LocalStorageService()
 
 function _loadPlayList (playlist) {
-  _playlist = playlist;
+  _playlist = playlist
 }
 
-function _loadTrak(playAfter) {
-  _Player.loadTrack(_getTrack());
+function _loadTrak (playAfter) {
+  _Player.loadTrack(_getTrack())
 
-  if(playAfter) {
-    _play();
+  if (playAfter) {
+    _play()
   }
 }
 
 function _getTrack () {
-  return _playlist[_currentTrack];
+  return _playlist[_currentTrack]
 }
 
 function _updateCurrentTrack (index) {
-  if(index === _currentTrack) return _play();
-  _currentTrack = index;
-  _LocalStorage.set('currentTrack', _currentTrack);
-  _loadTrak(true);
+  if (index === _currentTrack) return _play()
+  _currentTrack = index
+  _LocalStorage.set('currentTrack', _currentTrack)
+  _loadTrak(true)
 }
 
 function _play () {
-  if(!_Player.hasTrack()) return;
-  return _Player.play();
+  if (!_Player.hasTrack()) return
+  return _Player.play()
 }
 
 function _changeTrack (option) {
-  if(!option) return;
+  if (!option) return
 
-  let len = _playlist.length - 1;
+  let len = _playlist.length - 1
 
-  if(option === 'prev') {
-    return _updateCurrentTrack( (!_currentTrack) ? len : _currentTrack -1 );
+  if (option === 'prev') {
+    return _updateCurrentTrack((!_currentTrack) ? len : _currentTrack - 1)
   }
 
-  if(option === 'next') {
-    return _updateCurrentTrack( (_currentTrack === len) ? 0 : _currentTrack +1 );
+  if (option === 'next') {
+    return _updateCurrentTrack((_currentTrack === len) ? 0 : _currentTrack + 1)
   }
 }
 
-class PlayerStoreFactory extends EventEmitter{
-
-  constructor() {
-    super();
-    _currentTrack = _LocalStorage.get('currentTrack') || 0;
-    _loadPlayList(require("!json!../../playlist.json"));
-    this.init();
+class PlayerStoreFactory extends EventEmitter {
+  constructor () {
+    super()
+    _currentTrack = _LocalStorage.get('currentTrack') || 0
+    _loadPlayList(require('!json!../../playlist.json'))
+    this.init()
   }
 
-  init(){
-    _loadTrak();
-    this._onComplete();
-    this._onKeyBoardEvents();
+  init () {
+    _loadTrak()
+    this._onComplete()
+    this._onKeyBoardEvents()
   }
 
-  _onComplete() {
-    _Player.onComplete( () => {
-      _changeTrack('next');
-      this.emitChange();
-    });
+  _onComplete () {
+    _Player.onComplete(() => {
+      _changeTrack('next')
+      this.emitChange()
+    })
   }
 
-  _onKeyBoardEvents(){
-    let keyboardService = new KeyboardService();
+  _onKeyBoardEvents () {
+    let keyboardService = new KeyboardService()
     keyboardService.addTrigger(32, () => {
-      _play();
-      this.emitChange();
-    });
+      _play()
+      this.emitChange()
+    })
     keyboardService.addTrigger(39, () => {
-      _changeTrack('next');
+      _changeTrack('next')
       this.emitChange()
-    }, true);
+    }, true)
     keyboardService.addTrigger(37, () => {
-      _changeTrack('prev');
+      _changeTrack('prev')
       this.emitChange()
-    }, true);
+    }, true)
   }
 
   getPlayList () {
-    return _playlist;
+    return _playlist
   }
 
   getCurrentTrack () {
-    return _getTrack();
+    return _getTrack()
   }
 
-  getStatus() {
-    return _Player.isPlaying();
+  getStatus () {
+    return _Player.isPlaying()
   }
 
   emitChange () {
-    this.emit('change');
+    this.emit('change')
   }
 
   addChangeListener (callback) {
@@ -108,33 +110,33 @@ class PlayerStoreFactory extends EventEmitter{
   }
 
   removeChangeListener (callback) {
-    this.removeListener('change', callback);
+    this.removeListener('change', callback)
   }
-};
-const PlayerStore = new PlayerStoreFactory();
-export default PlayerStore;
+}
+
+const PlayerStore = new PlayerStoreFactory()
+export default PlayerStore
 
 PlayerDispatcher.register(function (payload) {
-
-  switch(payload.action.actionType) {
+  switch (payload.action.actionType) {
     case PlayerConstants.LOAD_PLAYLIST:
-      _loadPlayList(payload.action.data);
-      break;
+      _loadPlayList(payload.action.data)
+      break
     case PlayerConstants.CHANGE_TRACK:
-      _updateCurrentTrack(payload.action.index);
-      PlayerStore.emitChange();
-      break;
+      _updateCurrentTrack(payload.action.index)
+      PlayerStore.emitChange()
+      break
     case PlayerConstants.PLAY_MUSIC:
-      _play();
-      PlayerStore.emitChange();
-      break;
+      _play()
+      PlayerStore.emitChange()
+      break
     case PlayerConstants.NEXT_TRACK:
-      _changeTrack('next');
-      PlayerStore.emitChange();
-      break;
+      _changeTrack('next')
+      PlayerStore.emitChange()
+      break
     case PlayerConstants.PREV_TRACK:
-      _changeTrack('prev');
-      PlayerStore.emitChange();
-      break;
+      _changeTrack('prev')
+      PlayerStore.emitChange()
+      break
   }
-});
+})

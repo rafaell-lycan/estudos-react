@@ -4,4 +4,4 @@ export default {
   NEXT_TRACK: 'NEXT_TRACK',
   PREV_TRACK: 'PREV_TRACK',
   CHANGE_TRACK: 'CHANGE_TRACK'
-};
+}

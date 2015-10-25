@@ -1,38 +1,38 @@
-const API_URL = 'https://api.soundcloud.com/tracks/',
-      TOKEN = '10b1e7bf6b21e1a2a2971196b918833a';
+const API_URL = 'https://api.soundcloud.com/tracks/'
+const TOKEN = '10b1e7bf6b21e1a2a2971196b918833a'
 
-let _player = document.createElement('audio');
+let _player = document.createElement('audio')
 
-export default class PlayerService{
-  constructor()  {
-    this.trackId;
+export default class PlayerService {
+  constructor () {
+    this.trackId
   }
 
-  loadTrack(track) {
-    if(!track.trackId) return;
+  loadTrack (track) {
+    if (!track.trackId) return
 
-    this.trackId = track.trackId;
+    this.trackId = track.trackId
 
-    _player.src = `${API_URL}${track.trackId}/stream?client_id=${TOKEN}`;
+    _player.src = `${API_URL}${track.trackId}/stream?client_id=${TOKEN}`
   }
 
-  hasTrack() {
-    return !!this.trackId;
+  hasTrack () {
+    return !!this.trackId
   }
 
-  isPlaying() {
-    return !_player.paused;
+  isPlaying () {
+    return !_player.paused
   }
 
-  onComplete(callback) {
-    return _player.addEventListener('ended', callback);
+  onComplete (callback) {
+    return _player.addEventListener('ended', callback)
   }
 
-  play(){
-    if(_player.paused){
-      return _player.play();
+  play () {
+    if (_player.paused) {
+      return _player.play()
     }
 
-    return _player.pause();
+    return _player.pause()
   }
 }
