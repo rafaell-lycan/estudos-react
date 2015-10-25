@@ -5,29 +5,23 @@ let _player = document.createElement('audio');
 
 export default class PlayerService{
   constructor()  {
-    this.playlist = [];
     this.trackId;
   }
 
-  getPlayList() {
-    return this.playlist;
-  }
+  loadTrack(track) {
+    if(!track.trackId) return;
 
-  setPlayList(playlist = []) {
-    this.playlist = playlist;
-    this.loadTrack(playlist[0].trackId, 0);
-  }
+    this.trackId = track.trackId;
 
-  loadTrack(trackId) {
-    if(!trackId) return;
-
-    this.trackId = trackId;
-
-    _player.src = API_URL + trackId + '/stream?client_id=' + TOKEN;
+    _player.src = `${API_URL}${track.trackId}/stream?client_id=${TOKEN}`;
   }
 
   hasTrack() {
     return !!this.trackId;
+  }
+
+  isPlaying() {
+    return !_player.paused;
   }
 
   play(){
