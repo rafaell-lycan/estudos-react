@@ -24,6 +24,10 @@ export default class PlayerService{
     return !_player.paused;
   }
 
+  onComplete(callback) {
+    return _player.addEventListener('ended', callback);
+  }
+
   play(){
     if(_player.paused){
       return _player.play();

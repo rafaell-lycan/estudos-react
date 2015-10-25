@@ -54,6 +54,10 @@ class PlayerStoreFactory extends EventEmitter{
     super();
     _loadPlayList(require("!json!../../playlist.json"));
     _loadTrak();
+    _Player.onComplete( () => {
+      _changeTrack('next');
+      this.emitChange();
+    });
   }
 
   getPlayList () {
