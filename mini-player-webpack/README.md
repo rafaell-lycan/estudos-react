@@ -16,10 +16,14 @@ npm install
 If you want to compile the whole thing, just run:
 
 ```javascript
-webpack
+npm run build
 ```
 
-Yeap, you should have webpack installed in your system.
+##Keyboard Shortcuts
+
+- **Play**: Play/Pause;
+- **Shift + &#x02192;**: Next Track;
+- **Shift + &#x02190;**: Previous Track;
 
 ##Dependencies
 Basicaly you can se everything in `package.json`
