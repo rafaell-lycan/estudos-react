@@ -66,7 +66,7 @@ body{
     width: 100%;
     height: 100%;
     border-radius: 10px;
-    overflow: hidden !important;
+    overflow: hidden;
   }
 
   .player-list{
@@ -75,6 +75,7 @@ body{
     height: 100%;
     background-color: #fff;
     border-radius: 10px;
+    overflow: hidden;
     z-index: 0;
 
     .song-list{
@@ -97,12 +98,32 @@ body{
         color: #555;
       }
 
-      &.is-playing{
+      &.is-active{
         color: #168ecf;
       }
 
-      .index, .title, .time{
+      &.is-playing{
+        .index{
+          display: none;
+        }
+
+        .sound{
+          display: block;
+        }
+      }
+
+      .index, .title, .time, .sound{
         float: left;
+      }
+
+      .sound{
+        display: none;
+        margin: 2px 0;
+      }
+
+      .index, .sound{
+        width: 20px;
+        text-align: center;
       }
 
       .title{
