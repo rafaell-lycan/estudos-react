@@ -2,8 +2,9 @@ import PlayerDispatcher from "../dispatcher/PlayerDispatcher";
 import PlayerConstants from "../constants/PlayerConstants";
 import { EventEmitter } from "events";
 import PlayerService from "../services/PlayerService";
+import LocalStorageService from "../services/LocalStorageService";
 
-let _playlist = [], _currentTrack = 0, _Player = new PlayerService();
+let _playlist = [], _currentTrack, _Player = new PlayerService(), _LocalStorage = new LocalStorageService();
 
 function _loadPlayList (playlist) {
   _playlist = playlist;
@@ -21,9 +22,10 @@ function _getTrack () {
   return _playlist[_currentTrack];
 }
 
-function _updateCurrentTrack (index, track) {
+function _updateCurrentTrack (index) {
   if(index === _currentTrack) return _play();
   _currentTrack = index;
+  _LocalStorage.set('currentTrack', _currentTrack);
   _loadTrak(true);
 }
 
@@ -38,13 +40,11 @@ function _changeTrack (option) {
   let len = _playlist.length - 1;
 
   if(option === 'prev') {
-    _currentTrack = (!_currentTrack) ? len : _currentTrack -1;
-    return _loadTrak(true);
+    return _updateCurrentTrack( (!_currentTrack) ? len : _currentTrack -1 );
   }
 
   if(option === 'next') {
-    _currentTrack = (_currentTrack === len) ? 0 : _currentTrack +1;
-    return _loadTrak(true);
+    return _updateCurrentTrack( (_currentTrack === len) ? 0 : _currentTrack +1 );
   }
 }
 
@@ -52,7 +52,12 @@ class PlayerStoreFactory extends EventEmitter{
 
   constructor() {
     super();
+    _currentTrack = _LocalStorage.get('currentTrack') || 0;
     _loadPlayList(require("!json!../../playlist.json"));
+    this.init();
+  }
+
+  init(){
     _loadTrak();
     _Player.onComplete( () => {
       _changeTrack('next');
@@ -94,7 +99,7 @@ PlayerDispatcher.register(function (payload) {
       _loadPlayList(payload.action.data);
       break;
     case PlayerConstants.CHANGE_TRACK:
-      _updateCurrentTrack(payload.action.index, payload.action.track);
+      _updateCurrentTrack(payload.action.index);
       PlayerStore.emitChange();
       break;
     case PlayerConstants.PLAY_MUSIC:

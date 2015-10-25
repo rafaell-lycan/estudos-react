@@ -40,7 +40,7 @@ export default React.createClass({
   },
 
   _playTrack: function (data) {
-    PlayerActions.changeTrack( (data.index - 1), data.track);
+    PlayerActions.changeTrack( (data.index - 1));
   },
 
   render: function () {

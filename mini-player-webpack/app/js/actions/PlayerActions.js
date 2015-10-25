@@ -23,11 +23,10 @@ let PlayerActions = {
     });
   },
 
-  changeTrack: (index, track) => {
+  changeTrack: index => {
     PlayerDispatcher.handleViewAction({
       actionType: PlayerConstants.CHANGE_TRACK,
-      index: index,
-      track: track
+      index: index
     });
   },
 
