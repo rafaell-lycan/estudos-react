@@ -1,4 +1,13 @@
 {
   "extends": ["standard", "standard-react"],
-  "parser": "babel-eslint"
+  "parser": "babel-eslint",
+  "ecmaFeatures": {
+    "blockBindings": true,
+    "forOf": true,
+    "jsx": true,
+    "es6": true
+  },
+  "rules": {
+    "semi": 1
+  }
 }
