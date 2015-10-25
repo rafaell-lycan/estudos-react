@@ -11,7 +11,14 @@
         "artist": "Imagine Dragons",
         "trackId": 72713290,
         "duration": 188202,
-        "thumbnail": "https://i1.sndcdn.com/artworks-000040999477-zeej7u-t500x500.jpg"
+        "thumbnail": "https://i1.sndcdn.com/artworks-000018380207-fbgv3u-t500x500.jpg"
+    },
+    {
+        "title": "Nightmare",
+        "artist": "Avenged Sevenfold",
+        "trackId": 87607914,
+        "duration": 374630,
+        "thumbnail": "https://i1.sndcdn.com/artworks-000045602432-uvxbex-t500x500.jpg"
     },
     {
         "title": "Let's Go",
@@ -19,6 +26,13 @@
         "trackId": 198772955,
         "duration": 192775,
         "thumbnail": "https://i1.sndcdn.com/artworks-000026808160-4vx6ds-t500x500.jpg"
+    },
+    {
+        "title": "Derezzed (Tron Legacy Soundtrack)",
+        "artist": "Daft Punk",
+        "trackId": 7977348,
+        "duration": 250165,
+        "thumbnail": "https://i1.sndcdn.com/artworks-000003558243-xmb7f3-t500x500.jpg"
     },
     {
         "title": "Too Close",
@@ -35,10 +49,38 @@
         "thumbnail": "https://i1.sndcdn.com/artworks-000021188473-ib1zaj-t500x500.jpg"
     },
     {
+        "title": "Go With The Flow",
+        "artist": "Queens of the Stone Age",
+        "trackId": 3416793,
+        "duration": 189355,
+        "thumbnail": "https://i1.sndcdn.com/artworks-000104981097-vj82fy-t500x500.jpg"
+    },
+    {
+        "title": "Heroes Of Our Time",
+        "artist": "DragonForce",
+        "trackId": 35860670,
+        "duration": 435757,
+        "thumbnail": "https://i1.sndcdn.com/artworks-000017988977-l9ahje-t500x500.jpg"
+    },
+    {
+        "title": "Lonely Day",
+        "artist": "System Of A Down",
+        "trackId": 225198854,
+        "duration": 172240,
+        "thumbnail": "https://i1.sndcdn.com/artworks-000128953795-ourrxf-t500x500.jpg"
+    },
+    {
         "title": "He's a Pirate",
         "artist": "Pirates Of The Caribbean",
-        "trackId": 66301726,
-        "duration": 92090,
+        "trackId": 119203815,
+        "duration": 156382,
         "thumbnail": "https://i1.sndcdn.com/artworks-000033146239-jtywsu-t500x500.jpg"
+    },
+    {
+        "title": "How You Remind Me",
+        "artist": "Nickelback",
+        "trackId": 117498487,
+        "duration": 223941,
+        "thumbnail": "https://i1.sndcdn.com/ci-7B7omT4VpftB-0-t500x500.jpg"
     }
 ]
