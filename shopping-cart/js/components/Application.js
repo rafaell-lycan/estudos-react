@@ -46,9 +46,9 @@ let Application = React.createClass({
   // Render the main component and childs, passing state via props
   render: function () {
     return (<div className="container">
-        <h1>Shopping Cart Application</h1>
-        <ProductsComponent products={this.state.products} />
+        <h1 className="text-center">Beer Shopping App</h1>
         <CartComponent cart={this.state.cart} />
+        <ProductsComponent products={this.state.products} />
       </div>
     );
   }

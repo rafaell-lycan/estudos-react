@@ -3,6 +3,7 @@
 let React = require('react');
 let CartActions = require('../actions/CartActions');
 let ProductsMock = require('../utils/Products');
+let Product = require('./Product');
 
 let Products = React.createClass({
 
@@ -16,19 +17,10 @@ let Products = React.createClass({
     this._loadProducts();
   },
 
-  // Parse our product list in components (ugly way)
+  // Parse our product list in Product component
   renderProducts : function () {
     return this.props.products.map( (product, i) => {
-      return (
-        <div key={i} className="col-md-3">
-          <h4>{product.name}</h4>
-          <img src={product.image} alt={product.name} className="img-responsive img-thumbnail" />
-          <p><b>Price:</b> {product.price} </p>
-          <p><b>Quantity:</b> {product.inventory} </p>
-
-          <button className="btn btn-lg btn-primary">Add to Cart</button>
-        </div>
-      )
+      return <Product key={product.id} product={product} />
     });
   },
 
