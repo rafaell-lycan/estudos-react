@@ -20,8 +20,13 @@ let Products = React.createClass({
   // Parse our product list in Product component
   renderProducts : function () {
     return this.props.products.map( (product, i) => {
-      return <Product key={product.id} product={product} />
+      return <Product key={product.id} product={product} addProduct={this.addProduct} />
     });
+  },
+
+  // Add Product action
+  addProduct: function (product) {
+    CartActions.addToCart(product);
   },
 
   // Render product view

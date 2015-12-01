@@ -1,13 +1,7 @@
 'use strict';
 
 let React = require('react');
-let CartActions = require('../actions/CartActions');
-
 let Product = React.createClass({
-
-  addProduct: function (product) {
-    console.log('add->', product);
-  },
 
   // Render product view
   render: function () {
@@ -18,7 +12,7 @@ let Product = React.createClass({
         <p><b>Price:</b> {this.props.product.price} </p>
         <p><b>Quantity:</b> {this.props.product.inventory} </p>
 
-        <button className='btn btn-lg btn-block btn-danger' onClick={this.addProduct.bind(null, this.props.product)}>Add to Cart</button>
+        <button className='btn btn-lg btn-block btn-danger' onClick={this.props.addProduct.bind(null, this.props.product)}>Add to Cart</button>
       </div>
     );
   }
