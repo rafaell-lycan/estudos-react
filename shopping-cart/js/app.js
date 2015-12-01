@@ -1,6 +1,7 @@
 'use strict';
 
 let React = require('react');
+let ReactDOM = require('react-dom');
 let ShoppingCartApp = require('./components/Application');
 
-React.render(<ShoppingCartApp />, document.getElementById('main') );
+ReactDOM.render(<ShoppingCartApp />, document.getElementById('main'));

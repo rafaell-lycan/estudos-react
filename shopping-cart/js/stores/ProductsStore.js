@@ -21,20 +21,17 @@ class ProductStoreFactory extends EventEmitter{
 
   // Emit Change event
   emitChange () {
-    console.log("->Change");
     this.emit('change');
   }
 
   // Add change listener
   addChangeListener (callback) {
-    console.log("->AddListener");
-    this.on('change', callback)
+    this.on('change', callback);
   }
 
   // Remove change listener
   removeChangeListener (callback) {
-    console.log("->RemoveListener");
-    this.removeListener('change', callback)
+    this.removeListener('change', callback);
   }
 
 }
@@ -44,11 +41,9 @@ let ProductStore = new ProductStoreFactory();
 AppDispatcher.register(function (payload) {
   let action = payload.action;
 
-  console.log("->", action);
-
-  switch(action.actionType) {
+  switch (action.actionType) {
     case CartConstants.LOAD_PRODUCTS:
-      loadProducts(action.data)
+      loadProducts(action.data);
       break;
     default:
       return;

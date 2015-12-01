@@ -6,7 +6,8 @@
   "main": "js/app.js",
   "dependencies": {
     "flux": "^2.1.1",
-    "react": "^0.14.2"
+    "react": "^0.14.2",
+    "react-dom": "^0.14.3"
   },
   "devDependencies": {
     "browserify": "^12.0.1",
