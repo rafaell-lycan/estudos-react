@@ -1,0 +1,73 @@
+body{
+  background-color: #fff9e6;
+}
+
+h1{
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+h4{
+  font-weight: bold;
+}
+
+.btn{
+  border-radius: 3px;
+  border-width: 1px 1px 5px;
+  font-weight: bold;
+}
+
+.img-thumbnail{
+  margin-bottom: 20px;
+}
+
+.cart-component{
+  margin: 20px auto;
+}
+
+.cart-container{
+  position: absolute;
+  width: 300px;
+  top: 10px;
+  right: 10px;
+  border: 2px solid #333;
+  background-color: #fff;
+  z-index: 99;
+}
+
+.cart-container ul{
+  padding: 20px 20px 0;
+  list-style: none;
+}
+
+.cart-container li{
+  border-bottom: 1px dashed #ccc;
+  padding-bottom: 10px;
+}
+
+.cart-container li:last-child{
+  border: none;
+  padding-bottom: 0;
+}
+
+.cart-container .beer-name{
+  margin: 0;
+  font-weight: bold;
+}
+
+.cart-container .total{
+  padding: 10px 20px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #000;
+}
+
+.cart-container .close-btn{
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  padding: 5px;
+  color: #fff;
+  background-color: #000;
+  text-decoration: none;
+}
