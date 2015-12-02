@@ -4,7 +4,7 @@ let AppDispatcher = require('../dispatcher/AppDispatcher');
 let EventEmitter = require('events').EventEmitter;
 let CartConstants =  require('../constants/CartConstants');
 
-let _products = {}, cartInfo = {isVisible: false};
+let _products = {}, _cartVisible = false;
 
 function ProductCartModel(product) {
   this.id = product.id;
@@ -16,40 +16,21 @@ function ProductCartModel(product) {
 
 function _addItem (product) {
   if(!_products[product.id]) {
-    _products[product.id] = new ProductCartModel(product);
-  } else {
-    _products[product.id].amount += 1;
+    return _products[product.id] = new ProductCartModel(product);
   }
-  updateCartInfo();
+
+  _products[product.id].amount += 1;
 }
 
 function _removeItem (product) {
   delete _products[product.id];
-  updateCartInfo();
 }
 
 function _setVisibility (visibility) {
-  cartInfo.isVisible = visibility;
-}
-
-function updateCartInfo() {
-  let amount = 0, total = 0;
-
-  for(let prod in _products) {
-    amount++;
-    total += _products[prod].price * _products[prod].amount;
-  }
-
-  cartInfo.amount = amount;
-  cartInfo.total = parseFloat(total.toFixed(2));
+  _cartVisible = visibility;
 }
 
 class CartStoreFactory extends EventEmitter{
-
-  constructor() {
-    super();
-    updateCartInfo();
-  }
 
   // Return cart items
   getCartItems () {
@@ -58,17 +39,23 @@ class CartStoreFactory extends EventEmitter{
 
   // Retrurn amount of items in cart
   getCartAmount () {
-    return cartInfo.amount;
+    return Object.keys(_products).length;
   }
 
-  // Return cart totol cost
+  // Return cart total cost
   getCartTotal () {
-    return cartInfo.total;
+    let total = 0;
+
+    for (let prod in _products) {
+      total += _products[prod].price * _products[prod].amount;
+    }
+
+    return parseFloat(total.toFixed(2));
   }
 
   // Return cart visibility state
   getCartVisible () {
-    return cartInfo.isVisible;
+    return _cartVisible;
   }
 
   // Emit Change event
