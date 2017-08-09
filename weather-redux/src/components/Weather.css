@@ -1,0 +1,88 @@
+.weather {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 100vh;
+    color: #262634;
+    background-color: #F0F041;
+    padding: 50px;
+}
+
+.weather__header {
+    position: relative;
+}
+
+.weather__title {
+    font-weight: normal;
+}
+
+.weather__period {
+    display: block;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: .75rem;
+}
+
+.weather__search {
+    position: absolute;
+    display: block;
+    width: 36px;
+    height: 36px;
+    background: url('../search.svg') no-repeat 0 0;
+    top: 10px;
+    right: 0;
+}
+
+.weather__info {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+    font-weight: bold;
+}
+
+.weather__info img {
+    width: 48px;
+    margin: 20px;
+}
+
+.weather__next-days {
+    display: flex;
+    list-style: none;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0;
+    width: auto;
+}
+
+.weather__next-days li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: .8em;
+    border-bottom: 1px solid #262634;
+    padding: 10px 0;
+}
+
+.weather__next-days li:last-child {
+    border: none;
+}
+
+.weather__next-days img {
+    width: 18px;
+}
+
+.weather__day {
+    width: 80%;
+}
+
+.icon {
+    font-family: 'WeatherIcons-Regular',
+}
