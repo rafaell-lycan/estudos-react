@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router'
 import { weatherFetchData } from '../actions/weather';
 
-import weatherIcon from '../utils/icons';
-
 import './Weather.css';
-import sun from '../sun.svg';
-import cloud from '../cloud.svg';
-import search from '../search.svg';
+
+import { Icon } from './Icon';
+import getIcon from '../utils/icons';
 
 class Weather extends Component {
   componentDidMount() {
@@ -28,11 +27,17 @@ class Weather extends Component {
         <header className="weather__header">
           <h2 className="weather__title">{this.props.weather.city}</h2>
           <small className="weather__period">{this.props.weather.dayName}</small>
-          <search className="weather__search" />
+          <div className="weather__search">
+            <Link to={{
+              pathname: '/search'
+            }}>
+              <Icon icon="search" alt="search" />
+            </Link>
+          </div>
         </header>
 
         <div className="weather__info">
-          <div className="icon">{weatherIcon(this.props.weather.icon)}</div>
+          <Icon icon={this.props.weather.icon} alt={this.props.weather.condition} />
           {this.props.weather.temperature}º 
         </div>
 
@@ -41,7 +46,9 @@ class Weather extends Component {
             <li key={index}>
               <span className="weather__day">{day.dayName}</span>
               <span className="weather__temperature">{day.temperature}º</span>
-              <span className="weather__condition"><img src={cloud} alt={day.condition}/></span>
+              <span className="weather__condition">
+                <Icon icon={day.icon} alt={day.condition} />
+              </span>
             </li>
           ))}
         </ul>
@@ -59,7 +66,7 @@ const mapStateToProps = (state) => {
 };
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchData: (url) => dispatch(weatherFetchData(url))
+        fetchData: (city) => dispatch(weatherFetchData(city))
     };
 };
 

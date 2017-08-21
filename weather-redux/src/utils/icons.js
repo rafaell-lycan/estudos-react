@@ -1,24 +1,49 @@
-export default function(iconCode) {
-  let map = {
-    '01d': '\uf00d', // clear sky
-    '02d': '\uf002', // few clouds
-    '03d': '\uf041', // scattered clouds
-    '04d': '\uf013', // broken clouds
-    '09d': '\uf019', // shower rain
-    '10d': '\uf008', // rain
-    '11d': '\uf016', // thunderstorm
-    '13d': '\uf064', // snow
-    '50d': '\uf014', // mist
-    '01n': '\uf077',
-    '02n': '\uf086',
-    '03n': '\uf041',
-    '04n': '\uf031',
-    '09n': '\uf028',
-    '10n': '\uf028',
-    '11n': '\uf016',
-    '13n': '\uf016',
-    '50n': '\uf014'
-  };
+export default function(code) {
+  let imageUrl;
+  switch (code) {
+    case '01d':
+    case '01n':
+      imageUrl = 'https://d30y9cdsu7xlg0.cloudfront.net/png/754947-200.png';
+      break;
+    case '02d':
+    case '02n':
+      imageUrl = 'https://d30y9cdsu7xlg0.cloudfront.net/png/754949-200.png';
+      break;
+    case '03d':
+    case '03n':
+      imageUrl = 'https://d30y9cdsu7xlg0.cloudfront.net/png/754951-200.png';
+      break;
+    case '04d':
+    case '04n':
+      imageUrl = 'https://d30y9cdsu7xlg0.cloudfront.net/png/754936-200.png';
+      break;
+    case '09d':
+    case '09n':
+      imageUrl = 'https://d30y9cdsu7xlg0.cloudfront.net/png/754937-200.png';
+      break;
+    case '10d':
+    case '10n':
+      imageUrl = 'https://d30y9cdsu7xlg0.cloudfront.net/png/754955-200.png';
+      break;
+    case '11d':
+    case '11n':
+      imageUrl = 'https://d30y9cdsu7xlg0.cloudfront.net/png/754945-200.png';
+      break;
+    case '13d':
+    case '13n':
+      imageUrl = 'https://d30y9cdsu7xlg0.cloudfront.net/png/754957-200.png';
+      break;
+    case '50d':
+    case '50n':
+      imageUrl = 'https://d30y9cdsu7xlg0.cloudfront.net/png/754941-200.png';
+      break;
+    case 'search':
+      imageUrl = 'https://d30y9cdsu7xlg0.cloudfront.net/png/950829-200.png';
+      break;
+    default:
+      imageUrl = 'https://d30y9cdsu7xlg0.cloudfront.net/png/119135-200.png';
+      break;
+  }
 
-  return map[iconCode] || '\uf03e';
+  return imageUrl;
 }

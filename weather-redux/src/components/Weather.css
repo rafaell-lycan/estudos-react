@@ -3,10 +3,10 @@
     flex-direction: column;
     justify-content: space-between;
     width: 100%;
+    max-width: 580px;
     height: 100vh;
-    color: #262634;
-    background-color: #F0F041;
     padding: 50px;
+    margin: 0 auto;
 }
 
 .weather__header {
@@ -45,8 +45,7 @@
 }
 
 .weather__info img {
-    width: 48px;
-    margin: 20px;
+    width: 120px;
 }
 
 .weather__next-days {
@@ -76,7 +75,7 @@
 }
 
 .weather__next-days img {
-    width: 18px;
+    width: 24px;
 }
 
 .weather__day {
@@ -84,5 +83,5 @@
 }
 
 .icon {
-    font-family: 'WeatherIcons-Regular',
+    width: 100%;
 }
