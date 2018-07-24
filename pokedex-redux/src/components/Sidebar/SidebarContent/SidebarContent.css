@@ -1,0 +1,18 @@
+.sidebar-content {
+  position: relative;
+  display: block;
+  padding: 40px;
+  padding-top: 0px;
+  overflow: hidden; }
+  .sidebar-content h3 {
+    font-size: 20px;
+    font-weight: 400;
+    color: #4D6478;
+    margin-top: 15px;
+    margin-bottom: 5px; }
+  .sidebar-content__description {
+    color: #A6B0B6;
+    font-size: 15px;
+    text-align: left;
+    padding-bottom: 10px;
+    padding-top: 5px; }

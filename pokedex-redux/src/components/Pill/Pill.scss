@@ -1,0 +1,24 @@
+.pill {
+  display: block;
+  position: relative;
+  float: left;
+  height: 20px;
+  font-size: 12px;
+  line-height: 22px;
+  font-weight: 500;
+  padding: 0 8px;
+  color: #ffffff;
+  text-transform: uppercase;
+  border-radius: 2px;
+  margin-right: 5px;
+  margin-top: 5px;
+
+  &--grass { background-color: #4CAF50; }
+  &--poison { background-color: #21D0A9; }
+  &--fire { background-color: #FF5722; }
+  &--flying { background-color: #2962FF; }
+  &--ice { background-color: #81D4FA; }
+  &--psychic { background-color: #9C27B0; }
+  &--water { background-color: #2196F3; }
+  &--fairy { background-color: #E91E63; }
+}

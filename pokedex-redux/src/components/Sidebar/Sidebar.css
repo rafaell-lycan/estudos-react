@@ -1,0 +1,31 @@
+.sidebar__wrap {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  max-width: 480px;
+  height: 100%;
+  min-height: 100%;
+  background-color: #FFFFFF;
+  z-index: 3;
+  overflow: auto; }
+
+.sidebar--opened {
+  animation-name: slideIn-a;
+  animation-duration: 600ms;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.85, 0, 0.15, 1); }
+
+.sidebar__overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 2; }
+
+.sidebar--opened .sidebar__overlay {
+  opacity: 1; }

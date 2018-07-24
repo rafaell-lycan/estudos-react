@@ -1,0 +1,40 @@
+.sidebar-header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  color: #2A3C4B;
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 10px 40px 20px;
+  border-top: 10px solid #399494; }
+  .sidebar-header__close {
+    background: rgba(255, 255, 255, 0.9) url("https://pokeweak.github.io/images/close_icon_white.svg") no-repeat center center;
+    width: 44px;
+    height: 44px;
+    margin-right: -20px;
+    cursor: pointer;
+    transition: all 250ms ease;
+    border-radius: 90px; }
+    .sidebar-header__close:hover, .sidebar-header__close:focus {
+      box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.4); }
+  .sidebar-header__meta {
+    margin-right: auto; }
+  .sidebar-header__img {
+    position: relative;
+    display: block;
+    float: left;
+    height: 100%;
+    margin: 0 20px 0 0; }
+    .sidebar-header__img img {
+      width: 100%;
+      max-width: 100px; }
+  .sidebar-header__number {
+    top: 20px;
+    left: 156px;
+    font-size: 14px;
+    color: #A6B0B6; }
+  .sidebar-header__name {
+    text-align: left;
+    font-size: 24px;
+    line-height: 30px;
+    color: #2A3C4B;
+    margin: 0; }
